@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp">
+
+    <CheckBox
+        android:id="@+id/ck_child"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true" />
+
+    <ImageView
+        android:id="@+id/img_child"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_toRightOf="@id/ck_child"
+        android:src="@drawable/ic_launcher_background" />
+
+    <TextView
+        android:id="@+id/title_child"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/img_child"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@id/img_child"
+        android:lines="2"
+        android:text="哈哈哈"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/price_child"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/img_child"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@id/img_child"
+        android:text="000"
+        android:textColor="#ff6200" />
+
+    <com.bwie.xiexibo20190308.wiget.CustomView
+        android:id="@+id/group_child"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/price_child"
+        android:layout_alignParentRight="true"></com.bwie.xiexibo20190308.wiget.CustomView>
+</RelativeLayout>
