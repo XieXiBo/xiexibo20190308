@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,6 +46,7 @@ public class ShopCarFragment extends Fragment implements MainView {
         numAll = view.findViewById(R.id.numAll);
         //实例p
         presenter = new MainPresenter(this);
+        presenter.attechView(this);
         //关联
         presenter.onRelated();
         return view;
@@ -105,27 +107,39 @@ public class ShopCarFragment extends Fragment implements MainView {
                             }
                         }
                     }
+                    int sum1 = 0;
+                    Double sum2 = 0.0;
+                    Double sum3 = 0.0;
                     if (num1 == num2) {
                         checkAll.setChecked(true);
                     } else {
                         checkAll.setChecked(false);
                     }
 
-                    int sum1 = 0;
-                    Double sum2 = 0.0;
+
                     for (int i = 0; i < goodslist.size(); i++) {
                         boolean childChecked = goodslist.get(i).isChildChecked();
                         if (childChecked) {
                             sum1++;
                             Double price = goodslist.get(i).getPrice();
-                            Double num = Double.valueOf(goodslist.get(i).getNum());
+                            Double num = Double.valueOf(goodslist.get(i).getNumber());
+
                             sum2 = price * num;
+                        }else{
+                            sum3=0.0;
                         }
                     }
-                    priceAll.setText(sum2+"");
+                    sum3+=sum2;
+                    priceAll.setText(sum3+"");
                     numAll.setText("去结算（"+sum1+"）");
                 }
             });
         }
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        presenter.detchView();
     }
 }

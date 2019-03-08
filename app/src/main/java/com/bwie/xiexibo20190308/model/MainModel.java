@@ -6,6 +6,8 @@ import android.os.Message;
 import com.bwie.xiexibo20190308.utils.OkHttpUtils;
 
 import java.io.IOException;
+import java.lang.ref.Reference;
+import java.lang.ref.WeakReference;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -14,9 +16,24 @@ import okhttp3.Response;
 /**
  * @Auther: xiexibo
  * @Date: 2019/3/8 13:57:10
- * @Description:
+ * @Description:m层
  */
-public class MainModel {
+public class MainModel<T> {
+    private Reference<T> tReference;
+
+    public void attechView(T t) {
+        //软引用控制外部类
+        tReference = new WeakReference<T>(t);
+    }
+
+    public void detchView() {
+        if (tReference != null) {
+            tReference.clear();
+            tReference = null;
+        }
+    }
+
+
     private Handler handler = new Handler(){
         @Override
         public void handleMessage(Message msg) {

@@ -18,7 +18,7 @@ import java.util.List;
 /**
  * @Auther: xiexibo
  * @Date: 2019/3/8 14:31:55
- * @Description:
+ * @Description:自定义加减器
  */
 public class CustomView extends LinearLayout implements View.OnClickListener {
 

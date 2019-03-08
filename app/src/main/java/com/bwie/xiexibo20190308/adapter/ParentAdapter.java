@@ -18,7 +18,7 @@ import java.util.List;
 /**
  * @Auther: xiexibo
  * @Date: 2019/3/8 14:37:54
- * @Description:
+ * @Description:商家适配器
  */
 public class ParentAdapter extends RecyclerView.Adapter<ParentAdapter.MyViewHolder> {
     private Context context;

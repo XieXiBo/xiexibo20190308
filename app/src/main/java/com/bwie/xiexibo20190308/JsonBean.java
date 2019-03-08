@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * @Auther: xiexibo
  * @Date: 2019/3/8 14:21:00
- * @Description:
+ * @Description:bean类
  */
 public class JsonBean {
 
@@ -102,8 +102,8 @@ public class JsonBean {
         private String title;
         private Double price;
         private String images;
-        private boolean childChecked=false;
-        private int num = 1;
+        private boolean childChecked = false;
+        private int number = 1;
 
         public boolean isChildChecked() {
             return childChecked;
@@ -137,12 +137,13 @@ public class JsonBean {
             this.images = images;
         }
 
-        public int getNum() {
-            return num;
+
+        public int getNumber() {
+            return number;
         }
 
-        public void setNum(int num) {
-            this.num = num;
+        public void setNumber(int number) {
+            this.number = number;
         }
 
         @Override
@@ -151,7 +152,7 @@ public class JsonBean {
                     "title='" + title + '\'' +
                     ", price=" + price +
                     ", images='" + images + '\'' +
-                    ", num=" + num +
+                    ", num=" + number +
                     '}';
         }
     }

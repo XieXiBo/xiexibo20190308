@@ -3,6 +3,7 @@ package com.bwie.xiexibo20190308.adapter;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +22,7 @@ import java.util.List;
 /**
  * @Auther: xiexibo
  * @Date: 2019/3/8 14:56:44
- * @Description:
+ * @Description:商品适配器
  */
 public class ChildAdapter extends RecyclerView.Adapter<ChildAdapter.MyViewHolder> {
     private Context context;
@@ -45,6 +46,7 @@ public class ChildAdapter extends RecyclerView.Adapter<ChildAdapter.MyViewHolder
         myViewHolder.ck_child.setChecked(list.get(i).isChildChecked());
         myViewHolder.title_child.setText(list.get(i).getTitle());
         myViewHolder.price_child.setText("¥：" + list.get(i).getPrice());
+        list.get(i).setNumber(1);
         Glide.with(context).load(list.get(i).getImages()).into(myViewHolder.img_child);
         //商品状态改变
         myViewHolder.ck_child.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -55,7 +57,8 @@ public class ChildAdapter extends RecyclerView.Adapter<ChildAdapter.MyViewHolder
                     myViewHolder.group_child.setOnChangeNum(new CustomView.onChangeNum() {
                         @Override
                         public void onChange(int number) {
-                            list.get(i).setNum(number);
+                            list.get(i).setNumber(number);
+                            childListener.onChild(list);
                         }
                     });
                     childListener.onChild(list);
